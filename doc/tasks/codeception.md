@@ -20,8 +20,8 @@ grumphp:
             fail_fast: false
             suite: ~
             test: ~
-            xml: false
-            html: false
+            xml: ~
+            html: ~
 ```
 
 
@@ -52,12 +52,12 @@ This option can only be used in combination with a suite.
 
 **xml**
 
-*Default: false*
+*Default: null*
 
-When this option is enabled, Codeception will output an XML report for the test run.
+When this option is specified, Codeception will output an XML report for the test run. If left `null`, no XML report is generated.
 
 **html**
 
-*Default: false*
+*Default: null*
 
-When this option is enabled, Codeception will output an HTML report for the test run.
+When this option is specified, Codeception will output an HTML report for the test run. If left `null`, no HTML report is generated.

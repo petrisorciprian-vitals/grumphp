@@ -26,16 +26,16 @@ class Codeception extends AbstractExternalTask
             'suite' => null,
             'test' => null,
             'fail_fast' => false,
-            'xml' => false,
-            'html' => false,
+            'xml' => null,
+            'html' => null,
         ]);
 
         $resolver->addAllowedTypes('config_file', ['null', 'string']);
         $resolver->addAllowedTypes('suite', ['null', 'string']);
         $resolver->addAllowedTypes('test', ['null', 'string']);
         $resolver->addAllowedTypes('fail_fast', ['bool']);
-        $resolver->addAllowedTypes('xml', ['bool']);
-        $resolver->addAllowedTypes('html', ['bool']);
+        $resolver->addAllowedTypes('xml', ['null', 'string']);
+        $resolver->addAllowedTypes('html', ['null', 'string']);
         
         return ConfigOptionsResolver::fromOptionsResolver($resolver);
     }
@@ -64,8 +64,8 @@ class Codeception extends AbstractExternalTask
         $arguments->add('run');
         $arguments->addOptionalArgument('--config=%s', $config['config_file']);
         $arguments->addOptionalArgument('--fail-fast', $config['fail_fast']);
-        $arguments->addOptionalArgument('--xml', $config['xml']);
-        $arguments->addOptionalArgument('--html', $config['html']);
+        $arguments->addOptionalArgument('--xml=%s', $config['xml']);
+        $arguments->addOptionalArgument('--html=%s', $config['html']);
         $arguments->addOptionalArgument('%s', $config['suite']);
         $arguments->addOptionalArgument('%s', $config['test']);
 

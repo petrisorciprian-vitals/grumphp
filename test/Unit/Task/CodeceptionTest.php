@@ -29,8 +29,8 @@ class CodeceptionTest extends AbstractExternalTaskTestCase
                 'suite' => null,
                 'test' => null,
                 'fail_fast' => false,
-                'xml' => false,
-                'html' => false,
+                'xml' => null,
+                'html' => null,
             ]
         ];
     }
@@ -147,24 +147,24 @@ class CodeceptionTest extends AbstractExternalTaskTestCase
         ];
         yield 'xml' => [
             [
-                'xml' => true,
+                'xml' => 'report.xml',
             ],
             $this->mockContext(RunContext::class, ['hello.php', 'hello2.php']),
             'codecept',
             [
                 'run',
-                '--xml'
+                '--xml=report.xml'
             ]
         ];
         yield 'html' => [
             [
-                'html' => true,
+                'html' => 'report.html',
             ],
             $this->mockContext(RunContext::class, ['hello.php', 'hello2.php']),
             'codecept',
             [
                 'run',
-                '--html'
+                '--html=report.html'
             ]
         ];
     }
